@@ -1,0 +1,42 @@
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { routes } from './app.routes';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import {
+  LucideAngularModule,
+  User,
+  Mail,
+  Lock,
+  ArrowRight,
+  ArrowLeft,
+  LogIn,
+  Check,
+  LayoutDashboard,
+  PieChart,
+  LogOut,
+  UploadCloud,
+  Loader2,
+} from 'lucide-angular';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideCharts(withDefaultRegisterables()),
+    importProvidersFrom(
+      LucideAngularModule.pick({
+        User,
+        Mail,
+        Lock,
+        ArrowRight,
+        ArrowLeft,
+        LogIn,
+        Check,
+        LayoutDashboard,
+        PieChart,
+        LogOut,
+        UploadCloud,
+        Loader2,
+      })
+    ),
+  ],
+};
