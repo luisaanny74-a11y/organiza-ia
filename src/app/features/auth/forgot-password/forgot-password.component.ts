@@ -18,7 +18,7 @@ import { LucideAngularModule } from 'lucide-angular';
   template: `
     <app-auth-layout title="Recuperar Senha">
       <div *ngIf="!sent; else success" class="space-y-6">
-        <p class="text-slate-500 text-center text-sm">
+        <p class="text-slate-500 text-center text-sm font-medium">
           Digite seu email para receber as instruções de recuperação.
         </p>
 
@@ -33,33 +33,33 @@ import { LucideAngularModule } from 'lucide-angular';
             name="email"
             type="email"
             placeholder="Seu email cadastrado"
-            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm text-slate-700"
+            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-lg hover:border-[#243a5f] focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f]"
           />
         </div>
 
         <button
           (click)="sent = true"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md shadow-blue-200 transition text-sm uppercase tracking-wide flex items-center justify-center gap-2"
+          class="w-full bg-[#243a5f] hover:bg-[#1b2b47] text-white font-bold py-3.5 rounded-full transition transform active:scale-[0.99] text-sm uppercase tracking-widest shadow-md flex items-center justify-center gap-2"
         >
           <span>Enviar Link</span>
-          <lucide-icon name="send" [size]="18"></lucide-icon>
+          <lucide-icon name="send" [size]="16"></lucide-icon>
         </button>
       </div>
 
       <ng-template #success>
         <div class="text-center py-4">
           <div
-            class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
           >
-            <lucide-icon name="check" [size]="24"></lucide-icon>
+            <lucide-icon name="check" [size]="32"></lucide-icon>
           </div>
-          <h3 class="text-lg font-bold text-slate-800">Email Enviado!</h3>
+          <h3 class="text-xl font-bold text-[#243a5f]">Email Enviado!</h3>
           <p class="text-slate-500 text-sm mt-2">
-            Verifique sua caixa de entrada.
+            Verifique sua caixa de entrada para redefinir sua senha.
           </p>
           <button
             (click)="sent = false"
-            class="mt-6 text-blue-600 hover:underline text-sm font-medium"
+            class="mt-8 text-[#243a5f] hover:underline text-sm font-bold uppercase tracking-wide"
           >
             Tentar outro email
           </button>
@@ -69,7 +69,7 @@ import { LucideAngularModule } from 'lucide-angular';
       <div class="mt-8 pt-6 border-t border-slate-100 text-center">
         <a
           routerLink="/login"
-          class="text-slate-500 hover:text-slate-800 text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+          class="text-slate-500 hover:text-[#243a5f] text-sm font-bold flex items-center justify-center gap-2 transition-colors uppercase tracking-wide"
         >
           <lucide-icon name="arrow-left" [size]="16"></lucide-icon> Voltar ao
           Login

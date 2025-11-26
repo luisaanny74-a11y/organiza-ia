@@ -4,6 +4,18 @@
 
 html, body {
   height: 100%;
-  background-color: #f8fafc;
+  background-color: #243a5f; 
   font-family: 'Inter', sans-serif;
+}
+
+.social-btn {
+  @apply w-full flex items-center relative px-8 py-3 rounded-full border border-slate-300 bg-white hover:border-[#243a5f] hover:bg-slate-50 transition-all duration-200 cursor-pointer;
+}
+
+.social-btn span {
+  @apply w-full text-center font-bold text-slate-600 text-sm;
+}
+
+.social-btn img, .social-btn svg {
+  @apply w-5 h-5 absolute left-6 object-contain;
 }

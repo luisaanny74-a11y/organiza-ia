@@ -1,36 +1,41 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LogoComponent } from '../logo/logo.component';
+import { Component, Input, inject } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { LogoComponent } from '../../../../shared/components/logo/logo.component';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-auth-layout',
   standalone: true,
-  imports: [CommonModule, LogoComponent],
+  imports: [CommonModule, LogoComponent, LucideAngularModule],
   template: `
     <div
-      class="min-h-screen w-full bg-slate-50 flex items-center justify-center p-4"
+      class="min-h-screen w-full flex items-center justify-center p-6 md:p-8 bg-[#243a5f]"
     >
-      <div class="w-full max-w-[400px]">
-        <div class="mb-8 flex justify-center">
-          <app-logo></app-logo>
-        </div>
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
-          <div *ngIf="title" class="mb-6 text-center">
-            <h2 class="text-xl font-bold text-slate-800">{{ title }}</h2>
-            <p *ngIf="subtitle" class="text-slate-500 text-sm mt-1">
-              {{ subtitle }}
-            </p>
-          </div>
-          <ng-content></ng-content>
-        </div>
-        <div class="mt-6 text-center">
-          <p class="text-xs text-slate-400">&copy; 2025 Organiza.ai</p>
-        </div>
+      <div
+        class="bg-white w-full max-w-[500px] rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col relative"
+      >
+        <button
+          (click)="goBack()"
+          class="absolute top-6 left-6 text-slate-400 hover:text-[#243a5f] transition-colors cursor-pointer"
+          title="Voltar"
+        >
+          <lucide-icon name="arrow-left" [size]="24"></lucide-icon>
+        </button>
+
+        <header class="flex flex-col items-center justify-center mb-6 mt-2">
+          <app-logo [showText]="false" [large]="true"></app-logo>
+        </header>
+
+        <ng-content></ng-content>
       </div>
     </div>
   `,
 })
 export class AuthLayoutComponent {
   @Input() title = '';
-  @Input() subtitle = '';
+  private location = inject(Location);
+
+  goBack() {
+    this.location.back();
+  }
 }

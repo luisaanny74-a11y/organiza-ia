@@ -16,70 +16,103 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
     AuthLayoutComponent,
   ],
   template: `
-    <app-auth-layout title="Acesse sua conta">
+    <app-auth-layout>
       <form (submit)="login()" class="space-y-5">
-        <div class="space-y-1.5">
+        <div class="space-y-1">
+          <label
+            class="text-xs font-bold text-[#243a5f] ml-1 uppercase tracking-wider"
+            >E-mail ou Usuário</label
+          >
           <div class="relative">
-            <div
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"
-            >
-              <lucide-icon name="user" [size]="20"></lucide-icon>
-            </div>
             <input
               [(ngModel)]="email"
               name="email"
               type="email"
-              placeholder="Email ou Usuário"
-              class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition text-sm"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg hover:border-[#243a5f] focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f]"
               required
             />
           </div>
         </div>
 
-        <div class="space-y-1.5">
+        <div class="space-y-1">
+          <label
+            class="text-xs font-bold text-[#243a5f] ml-1 uppercase tracking-wider"
+            >Senha</label
+          >
           <div class="relative">
-            <div
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"
-            >
-              <lucide-icon name="lock" [size]="20"></lucide-icon>
-            </div>
             <input
               [(ngModel)]="password"
               name="password"
               type="password"
-              placeholder="Senha"
-              class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition text-sm"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg hover:border-[#243a5f] focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f]"
               required
             />
-          </div>
-          <div class="text-right">
-            <a
-              routerLink="/forgot-password"
-              class="text-xs text-slate-500 hover:text-blue-600 font-medium transition"
+            <button
+              type="button"
+              class="absolute right-3 top-3 text-slate-400 hover:text-[#243a5f]"
             >
-              Esqueceu a senha?
-            </a>
+              <lucide-icon name="eye-off" [size]="20"></lucide-icon>
+            </button>
           </div>
         </div>
 
         <button
           type="submit"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md shadow-blue-200 transition transform active:scale-[0.98] text-sm uppercase tracking-wide"
+          class="w-full bg-[#243a5f] hover:bg-[#1a2a4a] text-white font-bold py-3.5 rounded-full transition transform active:scale-[0.99] text-sm uppercase tracking-widest shadow-md mt-2"
         >
           Entrar
         </button>
+
+        <div class="text-center pt-2">
+          <a
+            routerLink="/forgot-password"
+            class="text-sm font-bold text-[#243a5f] hover:underline cursor-pointer"
+          >
+            ESQUECEU SUA SENHA?
+          </a>
+        </div>
       </form>
 
-      <div class="mt-8 pt-6 border-t border-slate-100 text-center">
-        <p class="text-slate-500 text-sm">
-          Não tem uma conta?
-          <a
-            routerLink="/register"
-            class="text-blue-600 font-bold hover:underline cursor-pointer ml-1"
-          >
-            Cadastre-se
-          </a>
-        </p>
+      <div class="relative my-8">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-slate-200"></div>
+        </div>
+        <div class="relative flex justify-center text-xs">
+          <span class="px-4 text-slate-400 bg-white">ou</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <button class="social-btn">
+          <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google"
+          />
+          <span>Continuar com o Google</span>
+        </button>
+
+        <button class="social-btn">
+          <img
+            src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+            alt="Facebook"
+          />
+          <span>Continuar com o Facebook</span>
+        </button>
+
+        <button class="social-btn">
+          <img src="assets/apple.jpg" alt="Apple" />
+          <span>Continuar com a Apple</span>
+        </button>
+      </div>
+
+      <div class="text-center mt-8 pt-4 border-t border-slate-100">
+        <p class="text-slate-500 text-sm mb-3">Não tem uma conta?</p>
+        <a
+          routerLink="/register"
+          class="text-[#243a5f] font-bold text-base hover:underline uppercase tracking-wide cursor-pointer"
+        >
+          INSCREVER-SE
+        </a>
       </div>
     </app-auth-layout>
   `,
