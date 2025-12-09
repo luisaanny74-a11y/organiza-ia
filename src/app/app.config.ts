@@ -16,6 +16,10 @@ import {
   LogOut,
   UploadCloud,
   Loader2,
+  Smartphone,
+  CloudDownload,
+  FolderOpen,
+  ClipboardList,
 } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
@@ -36,6 +40,10 @@ export const appConfig: ApplicationConfig = {
         LogOut,
         UploadCloud,
         Loader2,
+        Smartphone,
+        CloudDownload,
+        FolderOpen,
+        ClipboardList,
       })
     ),
   ],

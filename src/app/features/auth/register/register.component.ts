@@ -45,7 +45,7 @@ import { LucideAngularModule } from 'lucide-angular';
           <div class="space-y-1">
             <label
               class="text-xs font-bold text-[#243a5f] ml-1 uppercase tracking-wider"
-              >Nascimento</label
+              >Data de Nascimento</label
             >
             <input
               type="date"

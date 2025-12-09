@@ -3,6 +3,7 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
 import { DashboardPageComponent } from './features/dashboard/dashboard-page/dashboard-page.component';
+import { FeaturesPlaceholderComponent } from './features/features-placeholder/features-placeholder.component'; // Importação NOVO
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'dashboard', component: DashboardPageComponent },
+  { path: 'features', component: FeaturesPlaceholderComponent }, // Rota NOVO
 ];
