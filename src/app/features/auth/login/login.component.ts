@@ -20,7 +20,7 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
       <form (submit)="login()" class="space-y-5">
         <div class="space-y-1">
           <label
-            class="text-xs font-bold text-[#243a5f] ml-1 uppercase tracking-wider"
+            class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider"
             >E-mail ou Usuário</label
           >
           <div class="relative">
@@ -28,7 +28,7 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
               [(ngModel)]="email"
               name="email"
               type="email"
-              class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg hover:border-[#243a5f] focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f]"
+              class="w-full px-4 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg hover:border-[#243a5f] dark:hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 dark:focus:ring-blue-500/30 transition text-[#243a5f] dark:text-white"
               required
             />
           </div>
@@ -36,7 +36,7 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
 
         <div class="space-y-1">
           <label
-            class="text-xs font-bold text-[#243a5f] ml-1 uppercase tracking-wider"
+            class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider"
             >Senha</label
           >
           <div class="relative">
@@ -44,12 +44,12 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
               [(ngModel)]="password"
               name="password"
               type="password"
-              class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg hover:border-[#243a5f] focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f]"
+              class="w-full px-4 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg hover:border-[#243a5f] dark:hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 dark:focus:ring-blue-500/30 transition text-[#243a5f] dark:text-white"
               required
             />
             <button
               type="button"
-              class="absolute right-3 top-3 text-slate-400 hover:text-[#243a5f]"
+              class="absolute right-3 top-3 text-slate-400 hover:text-[#243a5f] dark:hover:text-white transition-colors"
             >
               <lucide-icon name="eye-off" [size]="20"></lucide-icon>
             </button>
@@ -58,7 +58,7 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
 
         <button
           type="submit"
-          class="w-full bg-[#243a5f] hover:bg-[#1a2a4a] text-white font-bold py-3.5 rounded-full transition transform active:scale-[0.99] text-sm uppercase tracking-widest shadow-md mt-2"
+          class="w-full bg-[#243a5f] hover:bg-[#1a2a4a] dark:bg-[#243a5f] dark:hover:bg-[#324b7a] dark:border dark:border-slate-700 text-white font-bold py-3.5 rounded-full transition transform active:scale-[0.99] text-sm uppercase tracking-widest shadow-md mt-2"
         >
           Entrar
         </button>
@@ -66,7 +66,7 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
         <div class="text-center pt-2">
           <a
             routerLink="/forgot-password"
-            class="text-sm font-bold text-[#243a5f] hover:underline cursor-pointer"
+            class="text-sm font-bold text-[#243a5f] dark:text-blue-300 hover:underline cursor-pointer"
           >
             ESQUECEU SUA SENHA?
           </a>
@@ -75,10 +75,15 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
 
       <div class="relative my-8">
         <div class="absolute inset-0 flex items-center">
-          <div class="w-full border-t border-slate-200"></div>
+          <div
+            class="w-full border-t border-slate-200 dark:border-gray-700"
+          ></div>
         </div>
         <div class="relative flex justify-center text-xs">
-          <span class="px-4 text-slate-400 bg-white">ou</span>
+          <span
+            class="px-4 text-slate-400 bg-white dark:bg-gray-900 transition-colors"
+            >ou</span
+          >
         </div>
       </div>
 
@@ -100,16 +105,24 @@ import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.compo
         </button>
 
         <button class="social-btn">
-          <img src="assets/apple.jpg" alt="Apple" />
+          <img
+            src="assets/apple.png"
+            alt="Apple"
+            class="rounded-full dark:invert"
+          />
           <span>Continuar com a Apple</span>
         </button>
       </div>
 
-      <div class="text-center mt-8 pt-4 border-t border-slate-100">
-        <p class="text-slate-500 text-sm mb-3">Não tem uma conta?</p>
+      <div
+        class="text-center mt-8 pt-4 border-t border-slate-100 dark:border-gray-800"
+      >
+        <p class="text-slate-500 dark:text-gray-400 text-sm mb-3">
+          Não tem uma conta?
+        </p>
         <a
           routerLink="/register"
-          class="text-[#243a5f] font-bold text-base hover:underline uppercase tracking-wide cursor-pointer"
+          class="text-[#243a5f] dark:text-blue-300 font-bold text-base hover:underline uppercase tracking-wide cursor-pointer"
         >
           INSCREVER-SE
         </a>

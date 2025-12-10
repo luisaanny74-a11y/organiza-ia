@@ -10,11 +10,12 @@ import { CommonModule } from '@angular/common';
       <img
         src="assets/logo.png"
         alt="Organiza.ia Logo"
+        class="filter drop-shadow-md transition-all duration-300 dark:brightness-0 dark:invert"
         [ngClass]="large ? 'h-24 w-auto' : 'h-12 w-auto'"
       />
       <span
         *ngIf="showText"
-        class="font-bold text-2xl tracking-tighter text-[#263b63]"
+        class="font-bold text-2xl tracking-tighter text-[#263b63] dark:text-white drop-shadow-sm"
       >
         Organiza.ia
       </span>

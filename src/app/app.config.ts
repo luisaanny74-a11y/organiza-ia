@@ -20,6 +20,14 @@ import {
   CloudDownload,
   FolderOpen,
   ClipboardList,
+  ChevronDown,
+  ChevronUp,
+  UserCog,
+  Moon,
+  Trash2,
+  Inbox,
+  Send,
+  X,
 } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
@@ -44,6 +52,14 @@ export const appConfig: ApplicationConfig = {
         CloudDownload,
         FolderOpen,
         ClipboardList,
+        ChevronDown,
+        ChevronUp,
+        UserCog,
+        Moon,
+        Trash2,
+        Inbox,
+        Send,
+        X,
       })
     ),
   ],

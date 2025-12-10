@@ -4,16 +4,19 @@
 
 html, body {
   height: 100%;
-  background-color: #243a5f; 
+  @apply bg-[#243a5f] dark:bg-black transition-colors duration-300;
   font-family: 'Inter', sans-serif;
 }
 
 .social-btn {
-  @apply w-full flex items-center relative px-8 py-3 rounded-full border border-slate-300 bg-white hover:border-[#243a5f] hover:bg-slate-50 transition-all duration-200 cursor-pointer;
+  @apply w-full flex items-center relative px-8 py-3 rounded-full border border-slate-300 bg-white 
+  hover:border-[#243a5f] hover:bg-slate-50 
+  dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:border-blue-500
+  transition-all duration-200 cursor-pointer;
 }
 
 .social-btn span {
-  @apply w-full text-center font-bold text-slate-600 text-sm;
+  @apply w-full text-center font-bold text-slate-600 text-sm dark:text-gray-200;
 }
 
 .social-btn img, .social-btn svg {
