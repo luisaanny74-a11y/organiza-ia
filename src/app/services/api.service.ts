@@ -1,0 +1,31 @@
+import { Injectable } from '@angular/core';
+import axios from 'axios';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  private api = axios.create({
+    baseURL: 'http://localhost:3000',
+  });
+
+  constructor() { }
+
+async login(dados: any): Promise<any> { 
+  try {
+    const response = await this.api.post('/loginn', dados);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+  async register(dados: any) {
+    try {
+      const response = await this.api.post('/register', dados);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+}
