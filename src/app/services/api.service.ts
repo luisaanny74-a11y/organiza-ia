@@ -11,18 +11,18 @@ export class ApiService {
 
   constructor() { }
 
-async login(dados: any): Promise<any> { 
-  try {
-    const response = await this.api.post('/loginn', dados);
-    return response.data;
-  } catch (error) {
-    throw error;
+  async login(dados: any): Promise<any> { 
+    try {
+      const response = await this.api.post('/loginn', dados);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
-}
 
   async register(dados: any) {
     try {
-      const response = await this.api.post('/register', dados);
+      const response = await this.api.post('/usuarios', dados);
       return response.data;
     } catch (error) {
       throw error;

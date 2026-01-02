@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule } from 'lucide-angular';
+import { LucideAngularModule, Eye, EyeOff, Mail, Lock } from 'lucide-angular'; 
 import { AuthLayoutComponent } from '../components/auth-layout/auth-layout.component';
 import { ApiService } from '../../../services/api.service';
 
@@ -13,35 +13,61 @@ import { ApiService } from '../../../services/api.service';
     CommonModule,
     RouterModule,
     FormsModule,
-    LucideAngularModule,
+    LucideAngularModule, 
     AuthLayoutComponent,
   ],
   template: `
     <app-auth-layout>
       <form (submit)="login()" class="space-y-5">
         <div class="space-y-1">
-          <label class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider">E-mail ou Usuário</label>
-          <div class="relative">
+          <label class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider">
+            E-mail ou Usuário
+          </label>
+          <div class="relative flex items-center">
+            <lucide-icon 
+              [img]="icons.Mail" 
+              class="absolute left-4 text-slate-400 z-10" 
+              [size]="18">
+            </lucide-icon>
+            
             <input
               [(ngModel)]="email"
               name="email"
               type="email"
-              class="w-full px-4 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f] dark:text-white"
+              class="w-full pl-12 pr-4 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f] dark:text-white"
+              placeholder="seu@email.com"
               required
             />
           </div>
         </div>
 
         <div class="space-y-1">
-          <label class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider">Senha</label>
-          <div class="relative">
+          <label class="text-xs font-bold text-[#243a5f] dark:text-blue-200 ml-1 uppercase tracking-wider">
+            Senha
+          </label>
+          <div class="relative flex items-center">
+            <lucide-icon 
+              [img]="icons.Lock" 
+              class="absolute left-4 text-slate-400 z-10" 
+              [size]="18">
+            </lucide-icon>
+
             <input
               [(ngModel)]="password"
               name="password"
-              type="password"
-              class="w-full px-4 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f] dark:text-white"
+              [type]="showPassword ? 'text' : 'password'"
+              class="w-full pl-12 pr-12 py-3 bg-slate-50 dark:bg-gray-800 border border-slate-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#243a5f]/30 transition text-[#243a5f] dark:text-white"
+              placeholder="••••••"
               required
             />
+
+            <button 
+              type="button"
+              (click)="showPassword = !showPassword"
+              class="absolute right-4 p-1 text-slate-400 hover:text-[#243a5f] focus:outline-none transition-colors z-10"
+            >
+              <lucide-icon [img]="showPassword ? icons.EyeOff : icons.Eye" [size]="18"></lucide-icon>
+            </button>
           </div>
         </div>
 
@@ -52,9 +78,11 @@ import { ApiService } from '../../../services/api.service';
           Entrar
         </button>
 
-        <div class="text-center mt-8 pt-4 border-t border-slate-100">
+        <div class="text-center mt-8 pt-4 border-t border-slate-100 dark:border-gray-700">
           <p class="text-slate-500 text-sm mb-3">Não tem uma conta?</p>
-          <a routerLink="/register" class="text-[#243a5f] font-bold text-base hover:underline uppercase">INSCREVER-SE</a>
+          <a routerLink="/register" class="text-[#243a5f] dark:text-blue-300 font-bold text-base hover:underline uppercase">
+            INSCREVER-SE
+          </a>
         </div>
       </form>
     </app-auth-layout>
@@ -63,7 +91,10 @@ import { ApiService } from '../../../services/api.service';
 export class LoginComponent {
   email = '';
   password = '';
+  showPassword = false; 
   
+  readonly icons = { Eye, EyeOff, Mail, Lock };
+
   private router = inject(Router);
   private apiService = inject(ApiService);
 
@@ -74,8 +105,6 @@ export class LoginComponent {
           email: this.email,
           password: this.password
         });
-
-        console.log('Sucesso:', response);
 
         if (response.token) {
           localStorage.setItem('user_token', response.token);
@@ -89,7 +118,7 @@ export class LoginComponent {
         
       } catch (error) {
         console.error('Erro no login:', error);
-        alert('Usuário ou senha inválidos. Tente novamente!');
+        alert('E-mail ou senha incorretos.');
       }
     } else {
       alert('Por favor, preencha todos os campos!');

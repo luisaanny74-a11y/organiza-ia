@@ -40,7 +40,6 @@ app.post('/loginn', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // 1. Procura o usuário pelo e-mail
     const usuario = await prisma.user.findUnique({ where: { email } });
 
     if (!usuario) {
